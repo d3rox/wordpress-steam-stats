@@ -1,0 +1,14 @@
+p.steam_stats {
+	min-height: 184px;
+}
+
+p.steam_profile img {
+	float: left;
+	margin: 0 10px;
+	border: 1px solid #545445;
+}
+
+p.steam_profile span {
+	width: 100%;
+	display: block;
+}
