@@ -20,6 +20,9 @@ function steam_stats_activate() {
 
 function steam_stats_create_default_options() {
 	$options = array();
+	
+	$options['cache'] = array();
+	
 	update_option( 'steam_stats_options', $options );
 }
 

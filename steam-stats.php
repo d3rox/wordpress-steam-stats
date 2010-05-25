@@ -42,7 +42,7 @@ define( 'STEAM_STATS_BASENAME', plugin_basename(__FILE__) );
 
 // Our Shortcodes
 global $steam_stats_shortcodes;
-$steam_stats_shortcodes = array( 'steam_friends_stats', 'steam_groups_stats', 'steam_games_stats' );
+$steam_stats_shortcodes = array( 'steam_profile', 'steam_recent_games', 'steam_friends', 'steam_groups', 'steam_games' );
 
 //
 // Load Steam Stats
