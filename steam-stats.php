@@ -1,4 +1,4 @@
-<?php //encoding: utf-8
+<?php
 /*
 Plugin Name: Steam Stats
 Plugin URI: http://pento.net/projects/wordpress-steam-stats-plugin/
@@ -40,6 +40,9 @@ if( ! defined( 'STEAM_STATS_URL' ) )
 // Define the basename
 define( 'STEAM_STATS_BASENAME', plugin_basename(__FILE__) );
 
+// Define the complete directory path
+define( 'STEAM_STATS_DIR', dirname( __FILE__ ) );
+
 // Our Shortcodes
 global $steam_stats_shortcodes;
 $steam_stats_shortcodes = array( 'steam_profile', 'steam_recent_games', 'steam_friends', 'steam_groups', 'steam_games' );
@@ -49,15 +52,15 @@ $steam_stats_shortcodes = array( 'steam_profile', 'steam_recent_games', 'steam_f
 //
 
 // Global functions
-require_once( dirname( __FILE__ ) . '/functions.php' );
+require_once( STEAM_STATS_DIR . '/functions.php' );
 
 // Setup (for installation/upgrades)
-require_once( dirname( __FILE__ ) . '/setup.php' );
+require_once( STEAM_STATS_DIR . '/setup.php' );
 
 // Shortcode handling
-require_once( dirname( __FILE__ ) . '/shortcodes.php' );
+require_once( STEAM_STATS_DIR . '/shortcodes.php' );
 
 // Add hooks at the end
-require_once( dirname( __FILE__ ) . '/hooks.php' );
+require_once( STEAM_STATS_DIR . '/hooks.php' );
 
 ?>
