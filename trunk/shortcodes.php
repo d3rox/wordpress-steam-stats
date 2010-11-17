@@ -28,13 +28,20 @@ function steam_stats_shortcode( $atts, $content, $tag ) {
 			$content .= '<span>' . sprintf( __( 'Location: %1s', 'steam-stats' ), $data['profile']->location ) . '</span>';
 			$content .= '<span>' . sprintf( __( 'Member Since: %1s', 'steam-stats' ), $data['profile']->memberSince ) . '</span>';
 			$content .= '<span>' . sprintf( __( 'Steam Rating: %1s', 'steam-stats' ), $data['profile']->steamRating ) . '</span>';
-			$content .= '<span>' . sprintf( __( 'Recent Play Time: %1s', 'steam-stats' ), $data['profile']->hoursPlayed2Wk ) . '</span>';
+			$content .= '<span>' . sprintf( __( 'Recent Play Time: %1s hours', 'steam-stats' ), $data['profile']->hoursPlayed2Wk ) . '</span>';
 			$content .= '</p>';
 			
 			return $content;
 		case 'steam_recent_games':
-			var_dump( $data['profile'] );
 			$content = '<p class="steam_stats steam_recent_games">';
+			for( $ii = 0; $ii < $atts['limit'] && isset( $data['games']->games->game[$ii]->hoursLast2Weeks ); $ii++ ) {
+				$game = $data['games']->games->game[$ii];
+				
+				$content .= '<img src="' . $game->logo . '" />';
+				$content .= "<span><a href='{$game->storeLink}'>{$game->name}</a></span>";
+				$content .= '<span>' . sprintf( __( 'Recent Play Time: %1s hours', 'steam-stats' ), $game->hoursLast2Weeks ) . '</span>';
+				$content .= '<span>' . sprintf( __( 'Total Play Time: %1s hours', 'steam-stats' ), $game->hoursOnRecord ) . '</span>';
+			}
 			$content .= '</p>';
 			
 			return $content;
