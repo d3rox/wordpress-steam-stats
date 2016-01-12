@@ -1,0 +1,1 @@
+An (unreleased) plugin for WordPress to show statistics from your Steam profile.
